@@ -29,7 +29,7 @@ public class AssassinAdmin {
 
 	// post: prints the names of the people in the kill ring and who they are stalking. If there
 	//       is only one person, it reports that they are stalking themselves.
-	void printKillRing() {
+	public void printKillRing() {
 		AssassinNode current = killRing;
 		while (current.next != null) {
 			System.out.println("    " + current.name + " is stalking " + current.next.name);
@@ -41,7 +41,7 @@ public class AssassinAdmin {
 	// post: prints the names of dead people & their killer in the graveyard. Reported in reverse 
 	//       kill order, meaning the most recently killed is printed first. If graveyard is empty
 	//       no output is produced.
-	void printGraveyard() {
+	public void printGraveyard() {
 		AssassinNode current = graveYard;
 		while (current != null) {
 			System.out.println("    " + current.name + " was killed by " + current.killer);
@@ -51,19 +51,19 @@ public class AssassinAdmin {
 	
 	// post: returns true if given name is currently in the kill ring. False otherwise. Method
 	//       is case insensitive 
-	boolean killRingContains(String name) {
+	public boolean killRingContains(String name) {
 		return contains(killRing, name);
 	}
 	
 	// post: returns true if given name is currently in the graveyard. False otherwise. Method
 	//       is case insensitive 
-	boolean graveyardContains(String name) {
+	public boolean graveyardContains(String name) {
 		return contains(graveYard, name);
 	}
 
 	// post: returns true if given name is currently in the given list. False otherwise. Method
 	//       is case insensitive 
-	boolean contains(AssassinNode list, String name) {
+	public boolean contains(AssassinNode list, String name) {
 		AssassinNode current = list;
 		while (current != null) {
 			if (current.name.compareToIgnoreCase(name) == 0) 
@@ -74,12 +74,12 @@ public class AssassinAdmin {
 	}
 	
 	// post: returns true if there is only one player in the kill ring. False otherwise. 
-	boolean gameOver() {
+	public boolean gameOver() {
 		return killRing.next == null;
 	}
 	
 	// post: returns name of winner if game is over. Otherwise, returns null 
-	String winner () {
+	public String winner () {
 		if (gameOver()) 
 			return killRing.name;
 		return null;
@@ -89,7 +89,7 @@ public class AssassinAdmin {
 	//       over (throws IllegalStateException if is)
 	// post: moves player with given name from the kill ring to the graveyard. Method is case 
 	//       insensitive
-	void kill(String name) {
+	public void kill(String name) {
 		if (!killRingContains(name)) 
 			throw new IllegalArgumentException();
 		if (gameOver()) 
@@ -117,9 +117,8 @@ public class AssassinAdmin {
 					current.next = current.next.next;
 					temp.next = graveYard;
 					graveYard = temp;
-				} else {
+				} else 
 					current = current.next;
-				}
 			}
 		}
 	}
