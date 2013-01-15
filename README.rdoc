@@ -6,6 +6,7 @@ This program manages a game of Assassin by creating a list of alive assassins wi
 == Public Methods
 	
 pre : names must be a non-empty List of Strings (throws IllegalArgumentException if not)
+
 post: constructs an AssassinAdmin object with a kill ring list with, and in the same order as, the given file of names
        public AssassinAdmin(List<String> names)
 	
@@ -31,5 +32,6 @@ post: returns name of winner if game is over. Otherwise, returns null
        String winner()
 
 pre : Kill ring contains given name (throws IllegalArgumentException if not). Game is not over (throws IllegalStateException if is)
+
 post: moves player with given name from the kill ring to the graveyard. Method is case insensitive
        void kill(String name)
