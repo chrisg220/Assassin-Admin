@@ -5,20 +5,31 @@ This program manages a game of Assassin by creating a list of alive assassins wi
 
 == Public Methods
 	
-post: constructs a question tree that stores one "computer" object
-       QuestionTree()
+pre : names must be a non-empty List of Strings (throws IllegalArgumentException if not)
+post: constructs an AssassinAdmin object with a kill ring list with, and in the same order as, the given file of names
 	
 pre : given file is legal and in "standard format" containing a nonempty sequence of line pairs representing nodes. Nodes should appear in preorder form. 
 post: replaces the current tree by reading another tree from the given file.
-       void read(Scanner input)
+       void printKillRing()(Scanner input)
 
 pre : output file name is legal
 post: prints the current tree in preorder fashion to an output file.
-       void write(PrintStream output)
+       void printGraveyard()
 
 post: asks a series of yes/no questions until the program either correctly guesses the user's object, or until the program discovers a new object, in which case it willthen insert it into the tree and replace the current tree with the new tree.
-       void askQuestions()
+       boolean killRingContains(String name)
 	
 post: asks the user a question, forcing an answer of "y" or "n". returns true if the answer was yes, returns false otherwise
-       boolean yesTo()
+       boolean graveyardContains(String name)
 
+pre : output file name is legal
+post: prints the current tree in preorder fashion to an output file.
+       boolean gameOver()
+
+pre : output file name is legal
+post: prints the current tree in preorder fashion to an output file.
+       String winner()
+
+pre : output file name is legal
+post: prints the current tree in preorder fashion to an output file.
+       void kill(String name)
