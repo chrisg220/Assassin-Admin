@@ -7,9 +7,9 @@ This program manages a game of Assassin by creating a list of alive assassins wi
 	
 pre : names must be a non-empty List of Strings (throws IllegalArgumentException if not)
 post: constructs an AssassinAdmin object with a kill ring list with, and in the same order as, the given file of names
+       public AssassinAdmin(List<String> names)
 	
-pre : given file is legal and in "standard format" containing a nonempty sequence of line pairs representing nodes. Nodes should appear in preorder form. 
-post: replaces the current tree by reading another tree from the given file.
+post: prints the names of the people in the kill ring and who they are stalking. If there is only one person, it reports that they are stalking themselves.
        void printKillRing()(Scanner input)
 
 pre : output file name is legal
